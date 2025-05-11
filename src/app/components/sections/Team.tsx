@@ -1,49 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SectionHeading from "../ui/SectionHeading";
 import { Button } from "../ui/button";
 import { TeamCard } from "../ui/TeamCard";
 import { motion } from "framer-motion";
-
-const teamMembers = [
-  {
-    id: 1,
-    name: "Dana El Kak",
-    role: "Administration Director",
-    image: "https://randomuser.me/api/portraits/women/32.jpg",
-  },
-  {
-    id: 2,
-    name: "Emily Chen",
-    role: "Curriculum Director",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-  },
-  {
-    id: 3,
-    name: "Sarah Johnson",
-    role: "Python Instructor",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
-    color: "blue",
-  },
-  {
-    id: 4,
-    name: "David Lee",
-    role: "Web Development Coach",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
-  },
-  {
-    id: 5,
-    name: "Jessica Wong",
-    role: "Scratch Programming Specialist",
-    image: "https://randomuser.me/api/portraits/women/90.jpg",
-  },
-];
+import { useRouter } from "next/navigation";
 
 const Team: React.FC = () => {
-  const [showAllMembers, setShowAllMembers] = useState(false);
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
+  const router = useRouter();
 
-  const displayedMembers = showAllMembers
-    ? teamMembers
-    : teamMembers.slice(0, 4);
+  // Function to fetch team data from the API
+  const getTeamMembers = async () => {
+    try {
+      const response = await fetch("/api/team");
+      const data = await response.json();
+      setTeamMembers(data);
+    } catch (error) {
+      console.error("Error fetching team data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getTeamMembers();
+  }, []);
+
+
+
+  // Show either all team members or just a subset
+  const displayedMembers = teamMembers.slice(0, 4);
 
   return (
     <section id="team" className="py-20 bg-white">
@@ -60,7 +44,7 @@ const Team: React.FC = () => {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="grid place-items-center"
             >
@@ -69,16 +53,16 @@ const Team: React.FC = () => {
           ))}
         </div>
 
-        {!showAllMembers && teamMembers.length > 3 && (
-          <div className="text-center">
-            <Button
-              onClick={() => setShowAllMembers(true)}
-              className="bg-coducators-blue text-white hover:bg-blue-700 transition-colors"
-            >
-              Show More
-            </Button>
-          </div>
-        )}
+
+        <div className="text-center mt-10">
+          <a
+            href="/teams"
+            className="inline-block py-3 px-8 bg-coducators-blue text-white rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-blue-600 hover:shadow-lg transform hover:-translate-y-1"
+          >
+            Meet the Team
+          </a>
+        </div>
+
       </div>
     </section>
   );

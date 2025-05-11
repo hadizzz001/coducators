@@ -69,7 +69,7 @@ export const HeroSection = () => {
         >
           <div className="flex flex-wrap gap-2 py-3 w-full text-xl max-md:text-lg leading-snug max-md:justify-center max-sm:justify-start">
             <a
-              href="#"
+              href="/book"
               className="flex flex-col items-center font-bold text-white max-md:min-w-60 max-sm:min-w-52"
             >
               <button
@@ -83,7 +83,7 @@ export const HeroSection = () => {
               </button>
             </a>
             <a
-              href="#"
+              href="/courses"
               className="flex flex-col items-center font-semibold text-blue-500 max-md:min-w-60 max-sm:min-w-52"
             >
               <button

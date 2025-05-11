@@ -23,13 +23,13 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Courses", href: "#courses" },
-    { name: "Projects", href: "#projects" },
-    { name: "Blog", href: "#blog" },
-    { name: "Team", href: "#team" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/#about" },
+    { name: "Courses", href: "/#courses" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Blog", href: "/#blog" },
+    { name: "Team", href: "/#team" },
+    { name: "FAQ", href: "/#faq" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -39,10 +39,10 @@ const Navbar: React.FC = () => {
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between relative z-9999999" style={{zIndex:"9999999"}}>
       
         <div className="flex md:space-x-6 items-center">
-          <a href="#" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img
               src="/logo.svg"
               alt="Coducators Logo"
@@ -63,12 +63,16 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        <button className="xl:flex hidden overflow-hidden gap-2 justify-center items-center py-3 px-5 my-auto text-lg font-semibold leading-none text-center text-white bg-amber-400 rounded-xl shadow-md">
-          <span className="self-stretch my-auto">Get Started</span>
-          <ArrowRight />
-        </button>
+<a href="/soon">
+<button className="xl:flex hidden overflow-hidden gap-2 justify-center items-center py-3 px-5 my-auto text-lg font-semibold leading-none text-center text-white rounded-xl shadow-md shiny-bg">
+  <span className="self-stretch my-auto">Upcoming Courses</span>
+  <ArrowRight />
+</button>
 
-        <div className="md:hidden relative z-99">
+</a>
+
+
+        <div className="md:hidden  ">
           <button
             onClick={toggleMenu}
             className="p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"

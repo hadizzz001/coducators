@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import WhatsappIcon from "./components/WhatsAppIcon";
 
 export const metadata: Metadata = {
   title: "Conductors",
@@ -21,6 +22,7 @@ export default function RootLayout({
         />
       </head>
       <body>{children}</body>
+      <WhatsappIcon />
     </html>
   );
 }

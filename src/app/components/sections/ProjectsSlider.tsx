@@ -1,58 +1,36 @@
-import SectionHeading from "@/app/components/ui/SectionHeading";
-import ProjectCard from "@/app/components/ui/ProjectCard";
-import Slider from "@/app/components/common/Slider";
-const projects = [
-  {
-    image: "/images/placeholder.png",
-    category: "Scratch Coding",
-    title: "Space Adventure Game",
-    author: "by Max, age 10",
-    description:
-      "Created as part of our Coding Game curriculum. This project demonstrates…",
-  },
-  {
-    image: "/images/placeholder.png",
-    category: "Java Store",
-    title: "Store Game",
-    author: "by Max, age 10",
-    description:
-      "Created as part of our Coding Game curriculum. This project demonstrates…",
-  },
-  {
-    image: "/images/placeholder.png",
-    category: "Styling Express",
-    title: "Rode To CSS Game",
-    author: "by Max, age 10",
-    description:
-      "Created as part of our Coding Game curriculum. This project demonstrates…",
-  },
-  {
-    image: "/images/placeholder.png",
-    category: "Weather App",
-    title: "Weather Day Game",
-    author: "by Max, age 10",
-    description:
-      "Created as part of our Coding Game curriculum. This project demonstrates…",
-  },
-  {
-    image: "/images/placeholder.png",
-    category: "Weather App",
-    title: "Weather Day Game",
-    author: "by Max, age 10",
-    description:
-      "Created as part of our Coding Game curriculum. This project demonstrates…",
-  },
-  {
-    image: "/images/placeholder.png",
-    category: "Weather App",
-    title: "Weather Day Game",
-    author: "by Max, age 10",
-    description:
-      "Created as part of our Coding Game curriculum. This project demonstrates…",
-  },
-];
+'use client';
+import { useEffect, useState } from 'react';
+import SectionHeading from '@/app/components/ui/SectionHeading';
+import ProjectCard from '@/app/components/ui/ProjectCard';
+import Slider from '@/app/components/common/Slider';
 
 const ProjectsSlider: React.FC = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch('/api/project'); // Adjust path if needed
+        const data = await res.json();
+
+        const formatted = data.map((item: any) => ({
+          _id: item._id,
+          video: item.video?.[0] ,
+          category: item.subtitle,
+          title: item.title,
+          author: `by ${item.student}, age ${item.age}`,
+          description: item.description.replace(/<\/?[^>]+(>|$)/g, ''), // strip HTML tags
+        }));
+
+        setProjects(formatted);
+      } catch (error) {
+        console.error('Failed to fetch projects:', error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <section id="projects" className="py-20 bg-white hide-arrows">
       <div className="container mx-auto px-4">
@@ -77,7 +55,7 @@ const ProjectsSlider: React.FC = () => {
 
         <div className="text-center mt-10">
           <a
-            href="#"
+            href="/projects"
             className="inline-block py-3 px-8 bg-coducators-green text-white rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-green-600 hover:shadow-lg transform hover:-translate-y-1"
           >
             Explore All Projects

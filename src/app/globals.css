@@ -106,3 +106,45 @@ body {
 .swiper-wrapper {
   align-items: stretch;
 }
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.animate-shine {
+  background: linear-gradient(90deg, #facc15, #ffeb99, #facc15);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+
+@keyframes shineBackground {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shiny-bg {
+  background: linear-gradient(110deg, #fbbf24, #fde68a, #fbbf24);
+  background-size: 200% auto;
+  animation: shineBackground 3s linear infinite;
+}

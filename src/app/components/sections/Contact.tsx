@@ -1,13 +1,47 @@
-import React from "react";
+"use client"
+
+import React from 'react'
+import { useState, useEffect } from "react";
 import SectionHeading from "../ui/SectionHeading";
-import {
-  FacebookIcon,
-  Github,
-  LinkedinIcon,
-  TwitterIcon,
-} from "lucide-react";
+import { FaFacebook, FaPhone, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { sendEmail } from '../../api/sendEmail/sendEmail'
+
 
 const Contact: React.FC = () => {
+ const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [messageStatus, setMessageStatus] = useState<null | { success: boolean; message: string }>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    const cleanValue = name === "phone" ? value.replace(/[^0-9]/g, "") : value;
+
+    setInputs((prev) => ({
+      ...prev,
+      [name]: cleanValue,
+    }));
+  };
+
+  const handleSubmit = async (formData: FormData) => {
+    const result = await sendEmail(formData);
+    setMessageStatus(result);
+
+    // ✅ Clear form if success
+    if (result.success) {
+      setInputs({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    }
+  };
+
+
   return (
     <section id="contact" className="py-20 bg-coducators-lightgray">
       <div className="container mx-auto px-4">
@@ -24,7 +58,9 @@ const Contact: React.FC = () => {
                 Send Us a Message
               </h3>
 
-              <form className="space-y-6">
+              <form
+                className="space-y-6" action={handleSubmit}  >
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 mb-2">
@@ -32,9 +68,13 @@ const Contact: React.FC = () => {
                     </label>
                     <input
                       type="text"
+                      name="name"
                       id="name"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
                       placeholder="John Doe"
+                      onChange={handleChange}
+                      value={inputs.name}
+                      required
                     />
                   </div>
                   <div>
@@ -43,22 +83,29 @@ const Contact: React.FC = () => {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       id="email"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
                       placeholder="john@example.com"
+                      onChange={handleChange}
+                      value={inputs.email}
+                      required
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-gray-700 mb-2">
-                    Subject
+                    Phone
                   </label>
                   <input
-                    type="text"
-                    id="subject"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
-                    placeholder="How can we help you?"
+                    name="phone"
+                    type="text"
+                    placeholder="Phone Number"
+                    value={inputs.phone}
+                    onChange={handleChange}
+                    required
                   />
                 </div>
 
@@ -68,9 +115,12 @@ const Contact: React.FC = () => {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
                     placeholder="Tell us more about your inquiry..."
+                    value={inputs.message}
+                    onChange={handleChange}
                   ></textarea>
                 </div>
 
@@ -81,6 +131,13 @@ const Contact: React.FC = () => {
                   Send Message
                 </button>
               </form>
+
+          {messageStatus && (
+            <p className={`mt-4 text-sm font-semibold ${messageStatus.success ? "text-green-600" : "text-red-600"}`}>
+              {messageStatus.message}
+            </p>
+          )}
+
             </div>
           </div>
 
@@ -117,7 +174,7 @@ const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900">Location</h4>
                     <p className="text-gray-600 mt-1">
-                      123 Coding Street, Digital City, 10001
+                      Beirut, Achrafieh
                     </p>
                   </div>
                 </div>
@@ -164,7 +221,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600 mt-1">(123) 456-7890</p>
+                    <p className="text-gray-600 mt-1">+961 71 623 249</p>
                   </div>
                 </div>
               </div>
@@ -176,34 +233,35 @@ const Contact: React.FC = () => {
               </h3>
               <div className="flex space-x-3">
                 <a
-                  href="#"
+                  href="https://api.whatsapp.com/send/?phone=96171623249&text&app_absent=0"
                   target="_blank"
-                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center p-3"
+                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
                 >
-                  <TwitterIcon className="fill-coducators-blue stroke-none" />
+                  <FaWhatsapp size={24} className="fill-coducators-blue stroke-none" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/coducators/"
                   target="_blank"
-                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center p-3"
+                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
                 >
-                  <Github className="fill-coducators-blue stroke-none" />
+                  <FaInstagram size={24} className="fill-coducators-blue stroke-none" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/coducators"
                   target="_blank"
-                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center p-3"
+                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
                 >
-                  <LinkedinIcon className="fill-coducators-blue stroke-none" />
+                  <FaLinkedin size={24} className="fill-coducators-blue stroke-none" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/coducators"
                   target="_blank"
-                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center p-3"
+                  className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
                 >
-                  <FacebookIcon className="fill-coducators-blue stroke-none" />
+                  <FaFacebook size={24} className="fill-coducators-blue stroke-none" />
                 </a>
               </div>
+
             </div>
           </div>
         </div>
