@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import SectionHeading from '@/app/components/ui/SectionHeading';
 import CourseCard from '@/app/components/ui/CourseCard';
-import Slider from '@/app/components/common/Slider';
+import Slider1 from '@/app/components/common/Slider1';
 
 const CourseSlider = () => {
   const [courses, setCourses] = useState([]);
@@ -43,7 +43,7 @@ const CourseSlider = () => {
           color="blue"
         />
 
-        <Slider
+        <Slider1
           items={courses}
           renderItem={(course) => (
             <CourseCard
