@@ -1,22 +1,5 @@
 {
-  "node": {
-    "b7e5ed05dd560151fda3d8ad8b43d99385ef1fcc": {
-      "workers": {
-        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cabc%5C%5CDesktop%5C%5CHadi%5C%5CMy%20Bussiness%5C%5CCoducators%5C%5Cfront-website%5C%5Csrc%5C%5Capp%5C%5Capi%5C%5CsendEmail%5C%5CsendEmail.ts%22%2C%5B%22%24%24ACTION_0%22%2C%22sendEmail%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    },
-    "e35a9e06ea68bd76fbf29d0f1e6108b16b8db8e4": {
-      "workers": {
-        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cabc%5C%5CDesktop%5C%5CHadi%5C%5CMy%20Bussiness%5C%5CCoducators%5C%5Cfront-website%5C%5Csrc%5C%5Capp%5C%5Capi%5C%5CsendEmail%5C%5CsendEmail.ts%22%2C%5B%22%24%24ACTION_0%22%2C%22sendEmail%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    }
-  },
+  "node": {},
   "edge": {},
-  "encryptionKey": "WLBxKgMaTLAgPu2QwIhhJ9WHT8uQWigs4PVl4vyOi4s="
+  "encryptionKey": "PXLA9bvbY93kaSpUFL1HZyhJ0YJjilXTvBUSGARXRUc="
 }

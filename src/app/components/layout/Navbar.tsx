@@ -39,8 +39,8 @@ const Navbar: React.FC = () => {
         isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       )}
     >
-      <div className="container mx-auto flex items-center justify-between relative z-9999999" style={{zIndex:"9999999"}}>
-      
+      <div className="container mx-auto flex items-center justify-between relative z-9999999" style={{ zIndex: "9999999" }}>
+
         <div className="flex md:space-x-6 items-center">
           <a href="/" className="flex items-center">
             <img
@@ -63,13 +63,13 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-<a href="/soon">
-<button className="xl:flex hidden overflow-hidden gap-2 justify-center items-center py-3 px-5 my-auto text-lg font-semibold leading-none text-center text-white rounded-xl shadow-md shiny-bg">
-  <span className="self-stretch my-auto">Upcoming Courses</span>
-  <ArrowRight />
-</button>
+        <a href="/soon">
+          <button className="xl:flex hidden overflow-hidden gap-2 justify-center items-center py-3 px-5 my-auto text-lg font-semibold leading-none text-center text-white rounded-xl shadow-md shiny-bg">
+            <span className="self-stretch my-auto">Upcoming Courses</span>
+            <ArrowRight />
+          </button>
 
-</a>
+        </a>
 
 
         <div className="md:hidden  ">
@@ -100,8 +100,14 @@ const Navbar: React.FC = () => {
               </a>
             </li>
           ))}
-          <li className="w-full px-8 pt-4">
-            <BookButton className="w-full" />
+          <li className="flex flex-col items-center space-y-4 pt-8">
+            <a href="/soon">
+              <button className="xl:flex  overflow-hidden gap-2 justify-center items-center py-3 px-5 my-auto text-lg font-semibold leading-none text-center text-white rounded-xl shadow-md shiny-bg">
+                <span className="self-stretch my-auto inline-flex">Upcoming Courses</span>
+                <ArrowRight className="inline-flex" />
+              </button>
+
+            </a>
           </li>
         </ul>
       </div>
