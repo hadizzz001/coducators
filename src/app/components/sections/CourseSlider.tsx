@@ -39,7 +39,7 @@ const CourseSlider = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Our Courses"
-          subtitle="Explore our range of coding courses designed for different age groups and skill levels."
+          subtitle="Discover our diverse range of tech courses designed for every interest and skill level."
           color="blue"
         />
 

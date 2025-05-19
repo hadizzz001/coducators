@@ -50,17 +50,16 @@ export const HeroSection = () => {
           className="mt-3 text-7xl max-md:text-5xl max-md:leading-tight 2xl:leading-normal max-lg:leading-tight font-bold text-slate-950"
           variants={itemVariants}
         >
-          Teaching <span className="text-coducators-blue">Kids</span> to
-          <span className="text-coducators-green"> Code </span>
-          with <span className="text-coducators-red"> Joy</span>
+          Teaching <span className="text-coducators-blue">Future</span> ready-kids, 
+          <span className="text-coducators-green"> one code </span>
+          at <span className="text-coducators-red"> a time!</span>
         </motion.h1>
 
         <motion.p
           className="pt-2 max-lg:mt-3 max-lg:pr-16 max-md:pr-0 mt-3 max-w-full max-md:text-base max-lg:text-lg text-2xl leading-8 text-gray-700"
           variants={itemVariants}
         >
-          We inspire young minds to explore technology through creative,
-          engaging, and age-appropriate coding lessons.
+          Welcome to Coducators, where coding meets fun! We're on a mission to spark your child’s creativity, build their problem-solving skills, and get them ready to rule the digital world.
         </motion.p>
 
         <motion.div
@@ -79,7 +78,7 @@ export const HeroSection = () => {
                 )}
               >
                 <CalendarDays className="w-5" />
-                <span className="self-stretch my-auto">Book Session</span>
+                <span className="self-stretch my-auto">Free Trial</span>
               </button>
             </a>
             <a
@@ -93,7 +92,7 @@ export const HeroSection = () => {
                 )}
               >
                 <BookOpen className="w-5" />
-                <span className="self-stretch my-auto">Check Courses</span>
+                <span className="self-stretch my-auto">Our Courses</span>
               </button>
             </a>
           </div>

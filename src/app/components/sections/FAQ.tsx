@@ -31,7 +31,7 @@ const FAQ: React.FC = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Frequently Asked Questions"
-          subtitle="Find answers to common questions about our programs, teaching methods, and enrollment process."
+          subtitle="Got questions? Our FAQ has everything you need to get started with Coducators."
           color="red"
         />
 

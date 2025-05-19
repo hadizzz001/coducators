@@ -8,18 +8,19 @@ const steps = [
   {
     number: "1",
     color: "#2196F3",
-    text: "Select your Class and Try Free",
+    text: "Book your free trial",
   },
   {
     number: "2",
     color: "#84cc16",
-    text: "Get Course Based on Interest",
+    text: "Unlock your interest",
   },
-  {
-    number: "3",
-    color: "#E53935",
-    text: "Launch your Coding Journey !",
-  },
+{
+  number: "3",
+  color: "#E53935",
+  text: "Code.\nBuild.\nCreate.",
+}
+
 ];
 
 export const HowItWorksSection = () => {
@@ -27,8 +28,8 @@ export const HowItWorksSection = () => {
     <section  className="bg-white">
       <div className="container mx-auto px-4 relative py-20">
         <SectionHeading
-          title="How It Works ?"
-          subtitle="Seamless Path for best education possible today."
+          title="What’s the Coducators Way ?"
+          subtitle="From curiosity to creation, we guide every step."
           color="blue"
         />
 
@@ -56,7 +57,9 @@ export const HowItWorksSection = () => {
                 <span className="text-9xl leading-none whitespace-nowrap max-md:text-8xl pr-3">
                   {step.number}
                 </span>
-                <h3 className="max-md:text-2xl text-3xl leading-9 md:w-[211px] max-md:w-3/4">{step.text}</h3>
+                <h3 className="max-md:text-2xl text-3xl leading-9 md:w-[211px] max-md:w-3/4 whitespace-pre-line">
+  {step.text}
+</h3>
               </div>
             </motion.div>
           ))}

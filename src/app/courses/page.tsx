@@ -6,7 +6,19 @@ import Navbar from '@/app/components/layout/Navbar';
 import Footer from '@/app/components/layout/Footer';
 
 const CourseGrid = () => {
-  const [courses, setCourses] = useState([]);
+type Course = {
+  _id: string;
+  title: string;
+  category: string;
+  imageUrl: string;
+  level: string;
+  soon: string;
+  duration: string;
+  ageGroup: string;
+};
+
+const [groupedCourses, setGroupedCourses] = useState<Record<string, Course[]>>({});
+
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -25,7 +37,16 @@ const CourseGrid = () => {
           ageGroup: `Ages ${JSON.parse(course.age).from}-${JSON.parse(course.age).to}`,
         }));
 
-        setCourses(formattedCourses);
+        // Group by ageGroup
+        const grouped = formattedCourses.reduce((acc, course) => {
+          if (!acc[course.ageGroup]) {
+            acc[course.ageGroup] = [];
+          }
+          acc[course.ageGroup].push(course);
+          return acc;
+        }, {});
+
+        setGroupedCourses(grouped);
       } catch (error) {
         console.error('Failed to fetch courses:', error);
       }
@@ -35,36 +56,41 @@ const CourseGrid = () => {
   }, []);
 
   return (
-            <div className="min-h-screen flex flex-col">
-            <Navbar />
-    <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video">
-      <div className="container mx-auto px-4">
-        <SectionHeading
-          title="Our Courses"
-          subtitle="Explore our range of coding courses designed for different age groups and skill levels."
-          color="blue"
-        />
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Our Courses"
+            subtitle="Explore our range of coding courses designed for different age groups and skill levels."
+            color="blue"
+          />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-          {courses.map((course) => (
-            <CourseCard
-              key={course._id}
-              _id={course._id}
-              title={course.title}
-              category={course.category}
-              imageUrl={course.imageUrl}
-              level={course.level}
-              duration={course.duration}
-              ageGroup={course.ageGroup}
-              soon={course.soon}
-            />
+          {/* Render each age group section */}
+          {Object.entries(groupedCourses).map(([ageGroup, courses]) => (
+            <div key={ageGroup} className="mb-12">
+              <h3 className="text-xl font-semibold text-coducators-darkblue mb-4">{ageGroup}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {courses?.map((course) => (
+                  <CourseCard
+                    key={course._id}
+                    _id={course._id}
+                    title={course.title}
+                    category={course.category}
+                    imageUrl={course.imageUrl}
+                    level={course.level}
+                    duration={course.duration}
+                    ageGroup={course.ageGroup}
+                    soon={course.soon}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
- 
-      </div>
-    </section>
-                <Footer />
-        </div>
+      </section>
+      <Footer />
+    </div>
   );
 };
 

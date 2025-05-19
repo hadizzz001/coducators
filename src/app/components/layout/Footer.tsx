@@ -22,13 +22,13 @@ const Footer: React.FC = () => {
             <img src="/logo.svg" alt="Coducators Logo" className="h-12 mb-4" />
             <p className="text-gray-600 mb-4 max-w-md">
               {
-                "Where fun meets education. We are dedicated to teaching kids the art of coding through engaging, interactive classes that spark creativity and problem-solving skills."
+                "Where fun meets education. Coducators inspire today’s learners to build the skills and confidence needed to shape tomorrow’s technology."
               }
             </p>
             <div className="flex space-x-4">
 <div className="flex space-x-3">
   <a
-    href="https://api.whatsapp.com/send/?phone=96171623249&text&app_absent=0"
+    href="https://api.whatsapp.com/send/?phone=96170128107&text&app_absent=0"
     target="_blank"
     className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
   >

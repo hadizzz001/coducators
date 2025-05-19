@@ -71,7 +71,7 @@ useEffect(() => {
 <div className="container mx-auto px-4">
       <SectionHeading
         title="Testimonials"
-        subtitle="Hear from families who have experienced our coding programs and the impact they've had."
+        subtitle="See how Coducators is making a difference—straight from those who’ve lived it."
         color="green"
       />
 

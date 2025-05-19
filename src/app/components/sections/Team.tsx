@@ -34,7 +34,7 @@ const Team: React.FC = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Meet Our Team"
-          subtitle="Our passionate educators and technology experts are dedicated to inspiring the next generation of coders."
+          subtitle="Behind every student’s success is a team of innovators, educators, and mentors—meet them here."
           color="blue"
         />
 

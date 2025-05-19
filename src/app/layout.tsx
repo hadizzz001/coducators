@@ -3,7 +3,7 @@ import "./globals.css";
 import WhatsappIcon from "./components/WhatsAppIcon";
 
 export const metadata: Metadata = {
-  title: "Conductors",
+  title: "Coducators",
   description:
     "Inspiring a love for coding in kids while helping them gain practical skills proudly at Conductors Group",
 };

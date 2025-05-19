@@ -6,7 +6,7 @@ const WhatsAppIcon = () => {
     e.preventDefault();
 
     const isAndroid = typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent);
-    const phoneNumber = '96171623249';
+    const phoneNumber = '96170128107';
 
     if (isAndroid) {
       // Try to open WhatsApp Business via intent on Android
@@ -19,7 +19,7 @@ const WhatsAppIcon = () => {
 
   return (
     <a
-      href="https://wa.me/96171623249"
+      href="https://wa.me/96170128107"
       onClick={handleClick}
       style={{
         position: 'fixed',

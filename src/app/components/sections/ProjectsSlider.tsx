@@ -36,7 +36,7 @@ const ProjectsSlider: React.FC = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Student Projects"
-          subtitle="See what our students have created and the skills they've developed through our programs."
+          subtitle="See how our students turn ideas into real-world tech creations."
           color="green"
         />
 

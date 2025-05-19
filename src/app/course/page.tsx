@@ -125,7 +125,7 @@ const AboutUsContent: React.FC = () => {
                 <div className="text-center mt-6">
                     <a
                         target='_blank'
-                        href={`https://wa.me/96171623249?text=Hi, I'm interested on ${title}`}
+                        href={`https://wa.me/96170128107?text=Hi, I'm interested on ${title}`}
                         className="inline-block py-3 px-8 bg-coducators-blue text-white rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg transform hover:-translate-y-1"
                     >
                         Interested on it!

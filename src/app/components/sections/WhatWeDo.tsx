@@ -13,14 +13,15 @@ const fadeUp = {
 };
 
 const WhatWeDo: React.FC = () => {
-  const features = [
-    "Age-appropriate coding curriculum for kids 5-16",
-    "Project-based learning with real-world applications",
-    "Small class sizes with personalized attention",
-    "Qualified instructors with tech and education backgrounds",
-    "Regular progress reports and feedback sessions",
-    "Fun, engaging activities that make learning enjoyable",
-  ];
+const features = [
+  "Hands-on tech education for ages 5+",
+  "Curriculum tailored to skill and interest.",
+  "Fun, creative, real-world learning.",
+  "Expert instructors provide personal guidance.",
+  "Collaborative environment builds confidence.",
+  "We equip kids with future-ready skills."
+];
+
 
   return (
     <section id="what-we-do" className="py-20 bg-coducators-lightgray">
@@ -46,14 +47,8 @@ const WhatWeDo: React.FC = () => {
 
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              Empowering Kids Through Code
-            </h3>
-
-            <p className="text-gray-700 mb-6">
-              {
-                "At Coducators, we believe that every child deserves the opportunity to learn coding in a way that's fun, engaging, and tailored to their individual needs."
-              }
-            </p>
+              Empowering Future Innovators
+            </h3> 
 
             <div className="space-y-4 mb-8">
               {features.map((feature, index) => (

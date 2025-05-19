@@ -42,7 +42,7 @@ const Blog: React.FC = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Blog & Resources"
-          subtitle="Stay updated with the latest in coding education and find resources for parents and educators."
+          subtitle="Stay inspired with expert tips, parent guides, and the latest in tech education from the Coducators community."
           color="red"
         />
 
@@ -70,7 +70,7 @@ const Blog: React.FC = () => {
             href="/blogs"
             className="inline-block py-3 px-8 bg-coducators-red text-white rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-red-700 hover:shadow-lg transform hover:-translate-y-1"
           >
-            Read More Articles
+            Read More
           </a>
         </div>
       </div>

@@ -226,7 +226,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <p className="text-gray-600 mt-1">+961 71 623 249</p>
+                      <p className="text-gray-600 mt-1">+961 70 128 107</p>
                     </div>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ const Contact: React.FC = () => {
                 </h3>
                 <div className="flex space-x-3">
                   <a
-                    href="https://api.whatsapp.com/send/?phone=96171623249&text&app_absent=0"
+                    href="https://api.whatsapp.com/send/?phone=96170128107&text&app_absent=0"
                     target="_blank"
                     className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
                   >

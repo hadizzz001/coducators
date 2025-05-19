@@ -37,7 +37,7 @@ const AboutUs: React.FC = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="About Us"
-          subtitle="Learn about our journey in educational technology and our passion for teaching kids to code."
+          subtitle="Discover who we are, what we stand for, and how we're shaping the next generation of tech creators."
           color="blue"
         />
 
@@ -48,18 +48,17 @@ const AboutUs: React.FC = () => {
             </h3>
 
             <p className="text-gray-700 mb-6">
-              Coducators began with a simple idea: make coding fun and
-              accessible for kids of all ages. Founded by a group of passionate
-              educators and tech professionals.
+              We believe every kid has the potential to become the next big digital creator!
+
+              Coducators began with a simple mission: to make tech education accessible and exciting for kids—today, it’s empowering hundreds of young minds to code, build, and innovate with confidence.
             </p>
 
             <p className="text-gray-700 mb-6">
-              Our teaching methodology focuses on project-based learning,
-              allowing children to see immediate results while building critical
-              thinking and problem-solving skills.
+              Our hands-on, project-based approach builds advanced tech skills and empowers students to innovate confidently.
             </p>
 
-            <div className="flex flex-wrap gap-4 lg:gap-2 2xl:gap-6 items-start mt-12 text-center max-md:mt-10">
+           <div className="flex flex-wrap gap-4 lg:gap-2 2xl:gap-6 items-start max-md:justify-center max-md:text-center max-md:mt-10 mt-12">
+
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
