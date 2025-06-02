@@ -52,7 +52,8 @@ const otherSession = formData.get("sessionOther") || "";
   try {
     await resend.emails.send({
       from: "noreply@noreply.hadizproductions.com",
-      to: "alihadimedlej001@gmail.com",
+      // to: "alihadimedlej001@gmail.com",
+      to: "info@coducators.com",
       subject: "New Organization Partnership Inquiry",
       text: `
 New Organization Submission

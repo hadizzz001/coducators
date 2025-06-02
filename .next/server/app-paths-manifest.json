@@ -1,11 +1,6 @@
 {
   "/page": "app/page.js",
-  "/api/banner/route": "app/api/banner/route.js",
-  "/api/blog/route": "app/api/blog/route.js",
-  "/api/course/route": "app/api/course/route.js",
-  "/api/project/route": "app/api/project/route.js",
-  "/api/team/route": "app/api/team/route.js",
-  "/api/rate/route": "app/api/rate/route.js",
-  "/api/faq/route": "app/api/faq/route.js",
-  "/api/brands/route": "app/api/brands/route.js"
+  "/work/page": "app/work/page.js",
+  "/coll/page": "app/coll/page.js",
+  "/api/coll/route": "app/api/coll/route.js"
 }

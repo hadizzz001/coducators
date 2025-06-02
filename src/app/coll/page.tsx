@@ -38,7 +38,11 @@ const WorkWithUs = () => {
   const [messageStatus, setMessageStatus] = useState<null | { success: boolean; message: string }>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
+ 
+    const target = e.target;
+
+  const { name, value, type } = target;
+  const checked = (target instanceof HTMLInputElement) ? target.checked : undefined;
 
     if (name in inputs.sessions) {
       setInputs((prev) => ({

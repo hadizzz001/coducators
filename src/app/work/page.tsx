@@ -33,22 +33,30 @@ const WorkWithUs = () => {
   const [cvUrl, setCvUrl] = useState("");
   const [messageStatus, setMessageStatus] = useState<null | { success: boolean; message: string }>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+) => {
+  const target = e.target;
+  const { name, value, type } = target;
 
-    if (name in inputs.languages) {
-      setInputs((prev) => ({
-        ...prev,
-        languages: {
-          ...prev.languages,
-          [name]: checked,
-        },
-      }));
-    } else {
-      const cleanValue = name === "phone" ? value.replace(/[^0-9]/g, "") : value;
-      setInputs((prev) => ({ ...prev, [name]: cleanValue }));
-    }
-  };
+  // Extract checked only if target is an input element (checkbox/radio)
+  const checked = target instanceof HTMLInputElement ? target.checked : undefined;
+
+  if (name in inputs.languages) {
+    // Use `checked` here (will be boolean if input, undefined otherwise)
+    setInputs((prev) => ({
+      ...prev,
+      languages: {
+        ...prev.languages,
+        [name]: !!checked, // Convert undefined to false safely
+      },
+    }));
+  } else {
+    const cleanValue = name === "phone" ? value.replace(/[^0-9]/g, "") : value;
+    setInputs((prev) => ({ ...prev, [name]: cleanValue }));
+  }
+};
+
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

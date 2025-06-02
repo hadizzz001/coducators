@@ -31,8 +31,8 @@ export const sendEmail = async (formData: FormData) => {
   try {
     await resend.emails.send({
       from: "noreply@noreply.hadizproductions.com",
-      to: "alihadimedlej001@gmail.com",
-      // to: "info@coducators.com",
+      // to: "alihadimedlej001@gmail.com",
+      to: "info@coducators.com",
       subject: "New Job Application",
       text: `
 Coducators – Job Application Form Submission
