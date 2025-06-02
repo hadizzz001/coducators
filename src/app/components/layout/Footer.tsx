@@ -8,6 +8,7 @@ const quickLinks = [
   { href: "/#blog", label: "Blog" },
   { href: "/#team", label: "Our Team" },
   { href: "/work", label: "Work with Us" },
+  { href: "/coll", label: "Collabrate with Us" },
   { href: "/#contact", label: "Contact Us" },
 ];
 

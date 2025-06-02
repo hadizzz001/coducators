@@ -1,1 +1,0 @@
-{"version":1,"functions":{"/api/blog":{},"/api/category":{},"/api/blog/[id]":{},"/api/brands":{},"/api/course":{},"/api/course/[id]":{},"/api/faq":{},"/api/products/[id]":{},"/api/products":{},"/api/project/[id]":{},"/api/project":{},"/api/team/[id]":{},"/api/team":{},"/api/rate":{}}}

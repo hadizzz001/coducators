@@ -8,7 +8,7 @@ import { sendEmail } from '../../api/sendEmail/sendEmail'
 
 
 const Contact: React.FC = () => {
- const [inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState({
     name: "",
     email: "",
     phone: "",
@@ -116,7 +116,7 @@ const Contact: React.FC = () => {
                   <textarea
                     id="message"
                     name="message"
-                    rows={5}
+                    rows={10}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
                     placeholder="Tell us more about your inquiry..."
                     value={inputs.message}
@@ -132,11 +132,11 @@ const Contact: React.FC = () => {
                 </button>
               </form>
 
-          {messageStatus && (
-            <p className={`mt-4 text-sm font-semibold ${messageStatus.success ? "text-green-600" : "text-red-600"}`}>
-              {messageStatus.message}
-            </p>
-          )}
+              {messageStatus && (
+                <p className={`mt-4 text-sm font-semibold ${messageStatus.success ? "text-green-600" : "text-red-600"}`}>
+                  {messageStatus.message}
+                </p>
+              )}
 
             </div>
           </div>
@@ -226,6 +226,32 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Apply to Coducators
+              </h3>
+              <button
+                type="button"
+                onClick={() => window.location.href = '/work'}
+                className="w-full py-3 px-6 bg-coducators-blue text-white rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
+              >
+                Apply Now!
+              </button> 
+            </div>
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Collaborate with us
+              </h3>
+              <button
+                type="button"
+                onClick={() => window.location.href = '/coll'}
+                className="w-full py-3 px-6 bg-coducators-blue text-white rounded-lg font-semibold shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
+              >
+                Collaborate Now!
+              </button> 
+            </div>
+
 
             <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
