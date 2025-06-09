@@ -31,17 +31,17 @@ const Blog: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <section id="faq" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="faq" className="py-20 bg-white dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
           <SectionHeading
             title="Frequently Asked Questions"
             subtitle="Find answers to common questions about our programs, teaching methods, and enrollment process."
             color="red"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 ">
             {faqItems.map((item, index) => (
               <div key={index} className="bg-coducators-lightgray rounded-xl overflow-hidden h-fit">
                 <Accordion type="single" collapsible className="w-full">

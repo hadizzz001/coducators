@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import WhatsappIcon from "./components/WhatsAppIcon";
 
+
 export const metadata: Metadata = {
   title: "Coducators",
   description:
@@ -13,6 +14,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="en">
       <head>
@@ -20,8 +23,12 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
+        
       </head>
-      <body>{children}</body>
+           <body className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+       
+        {children}
+        </body>
       <WhatsappIcon />
     </html>
   );

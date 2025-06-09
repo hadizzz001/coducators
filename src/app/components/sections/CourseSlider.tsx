@@ -7,35 +7,37 @@ import Slider1 from '@/app/components/common/Slider1';
 const CourseSlider = () => {
   const [courses, setCourses] = useState([]);
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const res = await fetch('/api/course');
-        const data = await res.json();
+useEffect(() => {
+  const fetchCourses = async () => {
+    try {
+      const res = await fetch('/api/course');
+      const data = await res.json();
 
-        // Transform data as needed for CourseCard
-        const formattedCourses = data.map((course) => ({
-          _id: course._id,
-          title: course.title,
-          category: course.category,
-          imageUrl: course.img[0],
-          level: course.level,
-          soon: course.soon,
-          duration: `${JSON.parse(course.duration).number} ${JSON.parse(course.duration).unit}`,
-          ageGroup: `Ages ${JSON.parse(course.age).from}-${JSON.parse(course.age).to}`,
-        }));
+      // Transform data as needed for CourseCard
+      const formattedCourses = data.map((course) => ({
+        _id: course._id,
+        title: course.title,
+        category: course.category,
+        imageUrl: course.img[0],
+        level: course.level,
+        soon: course.soon,
+        duration: `${JSON.parse(course.duration).number} ${JSON.parse(course.duration).unit}`,
+        ageGroup: `Ages ${JSON.parse(course.age).from}-${JSON.parse(course.age).to}`,
+      }));
 
-        setCourses(formattedCourses);
-      } catch (error) {
-        console.error('Failed to fetch courses:', error);
-      }
-    };
+      // Only take first 5 courses
+      setCourses(formattedCourses.slice(0, 5));
+    } catch (error) {
+      console.error('Failed to fetch courses:', error);
+    }
+  };
 
-    fetchCourses();
-  }, []);
+  fetchCourses();
+}, []);
+
 
   return (
-    <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video">
+    <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Our Courses"

@@ -1,6 +1,6 @@
 "use client"
 
-import { FaFacebook, FaPhone, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaPhone, FaLinkedin, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 import { sendEmail } from '../api/sendEmail/sendEmail';
 import React, { useEffect, useState } from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -46,29 +46,29 @@ const Contact: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <section id="contact" className="py-20 bg-coducators-lightgray">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="py-20 bg-coducators-lightgray dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
           <SectionHeading
             title="Contact Us"
             subtitle="Have questions or ready to enroll? Get in touch with our team for personalized assistance."
             color="blue"
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 dark:bg-gray-900 dark:text-white">
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden dark:bg-gray-900 dark:text-white">
+              <div className="p-8 dark:bg-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
                   Send Us a Message
                 </h3>
 
                 <form
-                  className="space-y-6" action={handleSubmit}  >
+                  className="space-y-6 dark:bg-gray-900 dark:text-white" action={handleSubmit}  >
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 dark:bg-gray-900 dark:text-white">
                     <div>
-                      <label htmlFor="name" className="block text-gray-700 mb-2">
+                      <label htmlFor="name" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
                         Your Name
                       </label>
                       <input
@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-gray-700 mb-2">
+                      <label htmlFor="email" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
                         Email Address
                       </label>
                       <input
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-gray-700 mb-2">
+                    <label htmlFor="subject" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
                       Phone
                     </label>
                     <input
@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
                       Message
                     </label>
                     <textarea
@@ -146,15 +146,15 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="space-y-8">
-              <div className="bg-white rounded-2xl shadow-md p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="space-y-8 dark:bg-gray-900 dark:text-white">
+              <div className="bg-white rounded-2xl shadow-md p-8 dark:bg-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
                   Contact Information
                 </h3>
 
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-coducators-blue/10 p-3 rounded-full">
+                <div className="space-y-4 dark:bg-gray-900 dark:text-white">
+                  <div className="flex items-start space-x-4 dark:bg-gray-900 dark:text-white">
+                    <div className="bg-coducators-blue/10 p-3 rounded-full ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-coducators-blue"
@@ -177,8 +177,8 @@ const Contact: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Location</h4>
-                      <p className="text-gray-600 mt-1">
+                      <h4 className="font-semibold text-gray-900 dark:bg-gray-900 dark:text-white">Location</h4>
+                      <p className="text-gray-600 mt-1 dark:bg-gray-900 dark:text-white">
                         Beirut, Achrafieh
                       </p>
                     </div>
@@ -202,8 +202,8 @@ const Contact: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Email</h4>
-                      <p className="text-gray-600 mt-1">info@coducators.com</p>
+                      <h4 className="font-semibold text-gray-900 dark:bg-gray-900 dark:text-white">Email</h4>
+                      <p className="text-gray-600 mt-1 dark:bg-gray-900 dark:text-white">info@coducators.com</p>
                     </div>
                   </div>
 
@@ -225,15 +225,15 @@ const Contact: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <p className="text-gray-600 mt-1">+961 70 128 107</p>
+                      <h4 className="font-semibold text-gray-900 dark:bg-gray-900 dark:text-white">Phone</h4>
+                      <p className="text-gray-600 mt-1 dark:bg-gray-900 dark:text-white">+961 70 128 107</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8 dark:bg-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
                   Our Social Links
                 </h3>
                 <div className="flex space-x-3">
@@ -264,6 +264,13 @@ const Contact: React.FC = () => {
                     className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
                   >
                     <FaFacebook size={24} className="fill-coducators-blue stroke-none" />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@coducators"
+                    target="_blank"
+                    className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
+                  >
+                    <FaTiktok size={24} className="fill-coducators-blue stroke-none" />
                   </a>
                 </div>
 

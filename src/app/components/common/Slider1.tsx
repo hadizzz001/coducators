@@ -21,7 +21,7 @@ function Slider<T>({ items, renderItem, slidesPerView = 1.2, breakpoints }: Slid
       breakpoints={breakpoints}
       className='mb-10'
       loop modules={[Autoplay]} autoplay={{
-                delay: 2000,
+                delay: 4000,
                 stopOnLastSlide: false,
                 reverseDirection: true
               }}

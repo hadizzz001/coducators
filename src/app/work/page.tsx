@@ -136,26 +136,26 @@ const handleChange = (
 
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
 
-      <section className="py-20 bg-coducators-lightgray">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-coducators-lightgray dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
           <SectionHeading
             title="Work With Us"
             subtitle="Submit your job application and we’ll get in touch."
             color="blue"
           />
 
-          <div className="grid grid-cols-1">
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Apply Now</h3>
+          <div className="grid grid-cols-1 dark:bg-gray-900 dark:text-white">
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8 dark:bg-gray-900 dark:text-white">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">Apply Now</h3>
 
               <form className="space-y-6" onSubmit={handleSubmit}>
                 {/* 1. Personal Information */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="fullName" className="block text-gray-700 mb-2">Full Name</label>
+                    <label htmlFor="fullName" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Full Name</label>
                     <input
                       type="text"
                       name="fullName"
@@ -168,7 +168,7 @@ const handleChange = (
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-gray-700 mb-2">Phone Number</label>
+                    <label htmlFor="phone" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Phone Number</label>
                     <input
                       type="text"
                       name="phone"
@@ -181,7 +181,7 @@ const handleChange = (
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 mb-2">Email Address</label>
+                    <label htmlFor="email" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Email Address</label>
                     <input
                       type="email"
                       name="email"
@@ -194,7 +194,7 @@ const handleChange = (
                     />
                   </div>
                   <div>
-                    <label htmlFor="dob" className="block text-gray-700 mb-2">Date of Birth</label>
+                    <label htmlFor="dob" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Date of Birth</label>
                     <input
                       type="date"
                       name="dob"
@@ -209,7 +209,7 @@ const handleChange = (
 
                 {/* 2. Availability & Location */}
                 <div className="space-y-4">
-                  <label className="block text-gray-700">Are you available on Saturdays?</label>
+                  <label className="block text-gray-700 dark:bg-gray-900 dark:text-white">Are you available on Saturdays?</label>
                   <select
                     name="availableSaturday"
                     onChange={handleChange}
@@ -222,7 +222,7 @@ const handleChange = (
                     <option value="No">No</option>
                   </select>
 
-                  <label htmlFor="city" className="block text-gray-700">Current City or Area</label>
+                  <label htmlFor="city" className="block text-gray-700 dark:bg-gray-900 dark:text-white">Current City or Area</label>
                   <input
                     type="text"
                     name="city"
@@ -233,7 +233,7 @@ const handleChange = (
                     required
                   />
 
-                  <label className="block text-gray-700">Can you commute to Ashrafieh?</label>
+                  <label className="block text-gray-700 dark:bg-gray-900 dark:text-white">Can you commute to Ashrafieh?</label>
                   <select
                     name="commute"
                     onChange={handleChange}
@@ -249,7 +249,7 @@ const handleChange = (
 
                 {/* 3. Education & Languages */}
                 <div className="space-y-4">
-                  <label className="block text-gray-700">Are you currently enrolled in university?</label>
+                  <label className="block text-gray-700 dark:bg-gray-900 dark:text-white">Are you currently enrolled in university?</label>
                   <select
                     name="enrolledUniversity"
                     onChange={handleChange}
@@ -263,7 +263,7 @@ const handleChange = (
                   </select>
 
                   <fieldset>
-                    <legend className="block text-gray-700 mb-2">Languages Spoken (Check all that apply):</legend>
+                    <legend className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Languages Spoken (Check all that apply):</legend>
                     <div className="space-y-2">
                       <label className="flex items-center space-x-2">
                         <input type="checkbox" name="arabic" checked={inputs.languages.arabic} onChange={handleChange} />
@@ -283,8 +283,8 @@ const handleChange = (
                 </div>
 
                 {/* 4. Position Applied For */}
-                <div className="space-y-4">
-                  <label className="block text-gray-700">Which position are you applying for?</label>
+                <div className="space-y-4 ">
+                  <label className="block text-gray-700 dark:bg-gray-900 dark:text-white">Which position are you applying for?</label>
                   <div className="space-y-2">
                     {["Coding Instructor", "Robotics Instructor", "Camp Supervisor", "Admin / Office Assistant", "Sales / Marketing"].map((role) => (
                       <label key={role} className="flex items-center space-x-2">
@@ -321,7 +321,7 @@ const handleChange = (
 
                 {/* 5. Availability */}
                 <div>
-                  <label htmlFor="startDate" className="block text-gray-700 mb-2">When can you start?</label>
+                  <label htmlFor="startDate" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">When can you start?</label>
                   <input
                     type="date"
                     name="startDate"
@@ -335,7 +335,7 @@ const handleChange = (
 
                 {/* 6. Motivation */}
                 <div>
-                  <label htmlFor="motivation" className="block text-gray-700 mb-2">Why do you want to work with us?</label>
+                  <label htmlFor="motivation" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Why do you want to work with us?</label>
                   <textarea
                     id="motivation"
                     name="motivation"
@@ -350,7 +350,7 @@ const handleChange = (
 
                 {/* 7. Additional Notes */}
                 <div>
-                  <label htmlFor="notes" className="block text-gray-700 mb-2">Additional Notes (Optional)</label>
+                  <label htmlFor="notes" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Additional Notes (Optional)</label>
                   <textarea
                     id="notes"
                     name="notes"
@@ -364,7 +364,7 @@ const handleChange = (
 
                 {/* 8. Upload CV */}
                 <div>
-                  <label className="block text-gray-700 mb-2">Upload Your CV</label>
+                  <label className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Upload Your CV</label>
                   <Upload onFileUpload={(urls) => setCvUrl(urls[0])} />
                   {cvUrl && <p className="text-sm text-green-600 mt-2">File uploaded successfully.</p>}
                 </div>

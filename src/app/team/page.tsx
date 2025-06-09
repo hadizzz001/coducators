@@ -46,8 +46,8 @@ const AboutUsContent: React.FC = () => {
         className="mt-10"
       />
 
-      <main className="flex-grow flex items-center justify-center mb-20">
-        <article className="flex flex-col items-center text-center max-w-md w-full">
+      <main className="flex-grow flex items-center justify-center mb-20 dark:bg-gray-900 dark:text-white">
+        <article className="flex flex-col items-center text-center max-w-md w-full dark:bg-gray-900 dark:text-white">
           {/* Profile Image with Red Border */}
           <div className="relative w-56 h-56 rounded-full p-2 bg-coducators-red">
             <div className="w-full h-full rounded-full overflow-hidden">
@@ -61,10 +61,10 @@ const AboutUsContent: React.FC = () => {
 
           <div className="mt-4">
             <h3 className="text-2xl font-bold text-coducators-red uppercase">{name}</h3>
-            <p className="mt-1 text-base text-gray-600">{position}</p>
+            <p className="mt-1 text-base text-gray-600 dark:bg-gray-900 dark:text-white">{position}</p>
             {desc && (
               <div
-                className="mt-4 text-base text-gray-600"
+                className="mt-4 text-base text-gray-600 dark:bg-gray-900 dark:text-white"
                 dangerouslySetInnerHTML={{ __html: desc }}
               />
             )}
@@ -77,7 +77,7 @@ const AboutUsContent: React.FC = () => {
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
       <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
         <AboutUsContent />

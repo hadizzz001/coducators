@@ -17,7 +17,7 @@ const FAQ: React.FC = () => {
       try {
         const response = await fetch('/api/faq');
         const data = await response.json();
-        setFaqItems(data.slice(0, 4)); // Show only the first 4 FAQs
+        setFaqItems(data.slice(0, 6)); // Show only the first 4 FAQs
       } catch (error) {
         console.error('Failed to fetch FAQs:', error);
       }
@@ -27,7 +27,7 @@ const FAQ: React.FC = () => {
   }, []);
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-20 bg-white dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Frequently Asked Questions"

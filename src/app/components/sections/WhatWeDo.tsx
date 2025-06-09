@@ -24,8 +24,8 @@ const features = [
 
 
   return (
-    <section id="what-we-do" className="py-20 bg-coducators-lightgray">
-      <div className="container mx-auto px-4">
+    <section id="what-we-do" className="mt-custom-15em py-20 bg-coducators-lightgray dark:bg-gray-900 dark:text-white">
+      <div className="container mx-auto px-4 mt-10">
         <SectionHeading
           title="What We Do"
           subtitle="Our approach to teaching coding combines education with fun, creating an environment where children thrive."
@@ -46,7 +46,7 @@ const features = [
           </div>
 
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
               Empowering Future Innovators
             </h3> 
 
@@ -60,10 +60,10 @@ const features = [
                   viewport={{ once: true, amount: 0.4 }}
                   variants={fadeUp}
                 >
-                  <div className="mr-4 mt-1 bg-coducators-green rounded-full p-1">
+                  <div className="mr-4 mt-1 bg-coducators-green rounded-full p-1 ">
                     <Check className="h-4 w-4 text-white" />
                   </div>
-                  <p className="text-gray-700">{feature}</p>
+                  <p className="text-gray-700 dark:bg-gray-900 dark:text-white">{feature}</p>
                 </motion.div>
               ))}
             </div>

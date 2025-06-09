@@ -10,6 +10,7 @@ import ReactStars from 'react-rating-stars-component';
 const Testimonials: React.FC = () => {
    const [showModal, setShowModal] = useState(false);
   const [inputs, setInputs] = useState({
+    forr: '',
     name: '',
     son: '',
     age: '',
@@ -55,7 +56,7 @@ useEffect(() => {
 
       alert('Submitted successfully!');
       setShowModal(false);
-      setInputs({ name: '', son: '', age: '', description: '', stars: 0 });
+      setInputs({ forr:'', name: '', son: '', age: '', description: '', stars: 0 });
       window.location.replace(`/reviews`);
     } catch (err) {
       console.error(err);
@@ -66,9 +67,9 @@ useEffect(() => {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-gradient-to-b from-white to-coducators-lightgray"
+      className="py-20 dark:bg-gray-900 dark:text-white"
     >
-<div className="container mx-auto px-4">
+<div className="container mx-auto px-4 ">
       <SectionHeading
         title="Testimonials"
         subtitle="See how Coducators is making a difference—straight from those who’ve lived it."
@@ -86,17 +87,18 @@ useEffect(() => {
             key={index}
           >
             <TestimonialCard
+              forr={item.for}
               quote={item.description}
               name={item.name}
               role={`Parent of ${item.son}, ${item.age}`}
               imageUrl={`https://www.svgrepo.com/show/527946/user-circle.svg`} // or use a proper image from API
               variant={
                 index === 1
-                  ? 'lime'
-                  : index === 2
                   ? 'green'
-                  : index === 3
+                  : index === 2
                   ? 'red'
+                  : index === 3
+                  ? 'blue'
                   : 'blue'
               }
               className={cn(
@@ -131,14 +133,14 @@ useEffect(() => {
           ×
         </button>
 
-        <h2 className="text-xl font-semibold mb-4">Submit a Rating</h2>
+        <h2 className="text-xl font-semibold mb-4 text-black">Submit a Rating</h2>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <input
             type="text"
             name="name"
             placeholder="Your Name"
-            className="w-full px-4 py-2 border rounded-md"
+            className="w-full px-4 py-2 border rounded-md text-black"
             onChange={handleChange}
             value={inputs.name}
             required
@@ -147,7 +149,7 @@ useEffect(() => {
             type="text"
             name="son"
             placeholder="Son's Name"
-            className="w-full px-4 py-2 border rounded-md"
+            className="w-full px-4 py-2 border rounded-md text-black"
             onChange={handleChange}
             value={inputs.son}
             required
@@ -156,16 +158,25 @@ useEffect(() => {
             type="text"
             name="age"
             placeholder="Age"
-            className="w-full px-4 py-2 border rounded-md"
+            className="w-full px-4 py-2 border rounded-md text-black"
             onChange={handleChange}
             value={inputs.age}
+            required
+          />
+          <input
+            type="text"
+            name="forr"
+            placeholder="Subject e.g Course, Workshop or Camp..."
+            className="w-full px-4 py-2 border rounded-md text-black"
+            onChange={handleChange}
+            value={inputs.forr}
             required
           />
           <textarea
             name="description"
             rows={4}
             placeholder="Your Description"
-            className="w-full px-4 py-2 border rounded-md"
+            className="w-full px-4 py-2 border rounded-md text-black"
             onChange={handleChange}
             value={inputs.description}
             required

@@ -36,17 +36,17 @@ const CourseGrid = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video">
-        <div className="container mx-auto px-4">
+      <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
           <SectionHeading
             title="Our Projects"
             subtitle="See what our students have created and the skills they've developed through our programs."
             color="green"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 dark:bg-gray-900 dark:text-white">
             {courses.map((course) => (
               <ProjectCard1
                 _id={course._id}

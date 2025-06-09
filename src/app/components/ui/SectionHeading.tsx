@@ -33,12 +33,13 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       <h2 className={cn(
         'text-3xl md:text-4xl font-bold mb-4 inline-block relative',
         `before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-12 before:h-1 ${colorClasses[color]}`,
-        centered ? 'before:left-1/2 before:-translate-x-1/2' : ''
+        centered ? 'before:left-1/2 before:-translate-x-1/2' : '',
+        'dark:bg-gray-900 dark:text-white'
       )}>
         {title}
       </h2>
       {subtitle && (
-        <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-lg">
+        <p className="text-gray-600 mt-4 max-w-3xl mx-auto text-lg dark:bg-gray-900 dark:text-white">
           {subtitle}
         </p>
       )}

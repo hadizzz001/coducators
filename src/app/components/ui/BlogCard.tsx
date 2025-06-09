@@ -9,7 +9,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data, className }) => {
   return (
     <div
       className={cn(
-        "bg-white rounded-2xl overflow-hidden card-shadow transition-all duration-300 h-[350px]",
+        "bg-white rounded-2xl overflow-hidden card-shadow transition-all duration-300 h-[400px]",
         className
       )}
     >

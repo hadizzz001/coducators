@@ -17,8 +17,8 @@ const stats = [
     label: "Courses Developed",
   },
   {
-    value: "25+",
-    label: "Qualified Instructors",
+    value: "23+",
+    label: "Collaborations",
   },
 ];
 
@@ -33,58 +33,58 @@ const fadeUp = {
 
 const AboutUs: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="about" className=" py-20 bg-white dark:bg-gray-900 dark:text-white">
+      <div className="container mx-auto px-4  ">
         <SectionHeading
           title="About Us"
           subtitle="Discover who we are, what we stand for, and how we're shaping the next generation of tech creators."
           color="blue"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ">
+          <div className="order-2 lg:order-1 ">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
               Inspiring Young Minds with the Power of Code
             </h3>
 
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-6 dark:bg-gray-900 dark:text-white">
               We believe every kid has the potential to become the next big digital creator!
 
               Coducators began with a simple mission: to make tech education accessible and exciting for kids—today, it’s empowering hundreds of young minds to code, build, and innovate with confidence.
             </p>
 
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-6 dark:bg-gray-900 dark:text-white">
               Our hands-on, project-based approach builds advanced tech skills and empowers students to innovate confidently.
             </p>
 
-           <div className="flex flex-wrap gap-4 lg:gap-2 2xl:gap-6 items-start max-md:justify-center max-md:text-center max-md:mt-10 mt-12">
+<div className="flex flex-wrap justify-center gap-4 lg:gap-2 2xl:gap-6 items-start text-center mt-12 max-md:mt-10">
+  {stats.map((stat, index) => (
+    <motion.div
+      key={index}
+      className="flex flex-col items-center pr-2 2xl:px-6 max-md:px-5 w-[140px] lg:w-[130px] 2xl:w-[140px]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={fadeUp}
+    >
+      <div
+        className={cn(
+          `w-16 h-16 text-2xl font-bold leading-none rounded-full grid place-items-center bg-opacity-10 min-h-16`,
+          index === 0 && "bg-coducators-blue/15 text-coducators-blue",
+          index === 1 && "bg-coducators-green/15 text-coducators-green",
+          index === 2 && "bg-coducators-red/15 text-coducators-red",
+          index === 3 && "bg-coducators-yellow/15 text-coducators-yellow"
+        )}
+      >
+        {stat.value}
+      </div>
+      <p className="z-10 mt-2.5 text-base font-medium leading-6 text-gray-700 dark:bg-gray-900 dark:text-white">
+        {stat.label}
+      </p>
+    </motion.div>
+  ))}
+</div>
 
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="flex flex-col items-center pr-2 2xl:px-6 max-md:px-5 w-[140px] lg:w-[130px] 2xl:w-[140px]"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.4 }}
-                  variants={fadeUp}
-                >
-                  <div
-                    className={cn(
-                      `w-16 h-16 text-2xl font-bold leading-none rounded-full grid place-items-center bg-opacity-10 min-h-16`,
-                      index === 0 && "bg-coducators-blue/15 text-coducators-blue",
-                      index === 1 && "bg-coducators-green/15 text-coducators-green",
-                      index === 2 && "bg-coducators-red/15 text-coducators-red",
-                      index === 3 && "bg-coducators-yellow/15 text-coducators-yellow"
-                    )}
-                  >
-                    {stat.value}
-                  </div>
-                  <p className="z-10 mt-2.5 text-base font-medium leading-6 text-gray-700">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </div>
 
           <div className="order-1 lg:order-2 relative">

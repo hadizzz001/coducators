@@ -24,12 +24,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           controls
         />
         <span className="absolute left-2.5 z-0 self-start px-3 py-1.5 bg-coducators-green rounded-full bottom-3">
-          {category}
+          {title}
         </span>
       </div>
       <div className="pt-2.5 pb-6 pl-3 mt-2.5 w-full">
         <h3 className="overflow-hidden w-full text-base font-bold text-black">
-          {title}
+          {category}
         </h3>
         <p className="mt-2 leading-none text-zinc-700">{author}</p>
         {/* <p className="overflow-hidden mt-2 max-w-full leading-5 text-gray-600 w-[300px]">

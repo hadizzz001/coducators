@@ -7,32 +7,33 @@ import Slider from '@/app/components/common/Slider';
 const ProjectsSlider: React.FC = () => {
   const [projects, setProjects] = useState([]);
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch('/api/project'); // Adjust path if needed
-        const data = await res.json();
+useEffect(() => {
+  const fetchProjects = async () => {
+    try {
+      const res = await fetch('/api/project'); // Adjust path if needed
+      const data = await res.json();
 
-        const formatted = data.map((item: any) => ({
-          _id: item._id,
-          video: item.video?.[0] ,
-          category: item.subtitle,
-          title: item.title,
-          author: `by ${item.student}, age ${item.age}`,
-          description: item.description.replace(/<\/?[^>]+(>|$)/g, ''), // strip HTML tags
-        }));
+      const formatted = data.map((item: any) => ({
+        _id: item._id,
+        video: item.video?.[0],
+        category: item.subtitle,
+        title: item.title,
+        author: `by ${item.student}, age ${item.age}`,
+        description: item.description.replace(/<\/?[^>]+(>|$)/g, ''), // strip HTML tags
+      }));
 
-        setProjects(formatted);
-      } catch (error) {
-        console.error('Failed to fetch projects:', error);
-      }
-    };
+      setProjects(formatted.slice(0, 5));
+    } catch (error) {
+      console.error('Failed to fetch projects:', error);
+    }
+  };
 
-    fetchProjects();
-  }, []);
+  fetchProjects();
+}, []);
+
 
   return (
-    <section id="projects" className="py-20 bg-white hide-arrows">
+    <section id="projects" className="py-20 bg-white hide-arrows dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Student Projects"

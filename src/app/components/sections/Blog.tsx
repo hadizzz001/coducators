@@ -38,7 +38,7 @@ const Blog: React.FC = () => {
   }, []);
 
   return (
-    <section id="blog" className="hide-arrows py-20 bg-coducators-lightgray">
+    <section id="blog" className="hide-arrows py-20 bg-coducators-lightgray dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Blog & Resources"

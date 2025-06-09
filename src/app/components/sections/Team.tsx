@@ -30,7 +30,7 @@ const Team: React.FC = () => {
   const displayedMembers = teamMembers.slice(0, 4);
 
   return (
-    <section id="team" className="py-20 bg-white">
+    <section id="team" className="py-20 bg-white dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Meet Our Team"

@@ -166,22 +166,22 @@ const WorkWithUs = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <section className="py-20 bg-coducators-lightgray">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-coducators-lightgray dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
           <SectionHeading
             title="Coducators – Collaboration Request Form"
             subtitle="Submit your request for partnership and we’ll get in touch."
             color="blue"
           />
 
-          <form className="space-y-6 bg-white p-8 rounded-2xl shadow-md" onSubmit={handleSubmit}>
+          <form className="space-y-6 bg-white p-8 rounded-2xl shadow-md dark:bg-gray-900 dark:text-white" onSubmit={handleSubmit}>
             {/* 1. Organization Information */}
-            <h3 className="text-xl font-semibold text-gray-800">1. Organization Information</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <h3 className="text-xl font-semibold text-gray-800 dark:bg-gray-900 dark:text-white">1. Organization Information</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 dark:bg-gray-900 dark:text-white">
               <div>
-                <label htmlFor="organizationName" className="block text-gray-700 mb-2">Organization Name</label>
+                <label htmlFor="organizationName" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Organization Name</label>
                 <input
                   type="text"
                   name="organizationName"
@@ -194,7 +194,7 @@ const WorkWithUs = () => {
                 />
               </div>
               <div>
-                <label htmlFor="contactPerson" className="block text-gray-700 mb-2">Contact Person Full Name</label>
+                <label htmlFor="contactPerson" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Contact Person Full Name</label>
                 <input
                   type="text"
                   name="contactPerson"
@@ -207,7 +207,7 @@ const WorkWithUs = () => {
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-gray-700 mb-2">Phone Number</label>
+                <label htmlFor="phone" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Phone Number</label>
                 <input
                   type="text"
                   name="phone"
@@ -220,7 +220,7 @@ const WorkWithUs = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-gray-700 mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Email Address</label>
                 <input
                   type="email"
                   name="email"
@@ -233,7 +233,7 @@ const WorkWithUs = () => {
                 />
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="website" className="block text-gray-700 mb-2">Website or Social Media (optional)</label>
+                <label htmlFor="website" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Website or Social Media (optional)</label>
                 <input
                   type="text"
                   name="website"
@@ -247,22 +247,22 @@ const WorkWithUs = () => {
             </div>
 
             {/* 2. Location & Timing */}
-            <h3 className="text-xl font-semibold text-gray-800 mt-6">2. Location & Timing</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 dark:bg-gray-900 dark:text-white">2. Location & Timing</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 dark:bg-gray-900 dark:text-white">
               <div>
-                <label htmlFor="location" className="block text-gray-700 mb-2">Location of Collaboration (City/Area)</label>
+                <label htmlFor="location" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Location of Collaboration (City/Area)</label>
                 <input
                   type="text"
                   name="location"
                   id="location"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 "
                   onChange={handleChange}
                   value={inputs.location}
                   required
                 />
               </div>
               <div>
-                <label htmlFor="preferredDays" className="block text-gray-700 mb-2">Preferred Days</label>
+                <label htmlFor="preferredDays" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Preferred Days</label>
                 <input
                   type="text"
                   name="preferredDays"
@@ -275,7 +275,7 @@ const WorkWithUs = () => {
                 />
               </div>
               <div>
-                <label htmlFor="preferredTimes" className="block text-gray-700 mb-2">Preferred Times</label>
+                <label htmlFor="preferredTimes" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Preferred Times</label>
                 <input
                   type="text"
                   name="preferredTimes"
@@ -288,7 +288,7 @@ const WorkWithUs = () => {
                 />
               </div>
               <div>
-                <label htmlFor="startDate" className="block text-gray-700 mb-2">Expected Start Date</label>
+                <label htmlFor="startDate" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Expected Start Date</label>
                 <input
                   type="text"
                   name="startDate"
@@ -300,7 +300,7 @@ const WorkWithUs = () => {
                 />
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="duration" className="block text-gray-700 mb-2">Duration of Collaboration</label>
+                <label htmlFor="duration" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Duration of Collaboration</label>
                 <input
                   type="text"
                   name="duration"
@@ -316,10 +316,10 @@ const WorkWithUs = () => {
 
 
             {/* 3. Type of Collaboration */}
-            <h3 className="text-xl font-semibold text-gray-800 mt-6">3. Type of Collaboration</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 dark:bg-gray-900 dark:text-white">3. Type of Collaboration</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label className="block text-gray-700 mb-2">What kind of sessions are you interested in?</label>
+                <label className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white" >What kind of sessions are you interested in?</label>
                 <div className="space-y-2">
                   {[
                     { name: "robotics", label: "Robotics" },
@@ -342,7 +342,7 @@ const WorkWithUs = () => {
                     </div>
                   ))}
                   <div>
-                    <label className="block text-gray-700 mt-2">Other:</label>
+                    <label className="block text-gray-700 mt-2 dark:bg-gray-900 dark:text-white">Other:</label>
                     <input
                       type="text"
                       name="other"
@@ -355,7 +355,7 @@ const WorkWithUs = () => {
               </div>
 
               <div>
-                <label htmlFor="targetAgeGroup" className="block text-gray-700 mb-2">Target Age Group(s)</label>
+                <label htmlFor="targetAgeGroup" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Target Age Group(s)</label>
                 <input
                   type="text"
                   name="targetAgeGroup"
@@ -365,7 +365,7 @@ const WorkWithUs = () => {
                   className="w-full px-4 py-3 rounded-lg border border-gray-300"
                 />
 
-                <label htmlFor="studentCount" className="block text-gray-700 mt-4 mb-2">Expected Number of Students per Session</label>
+                <label htmlFor="studentCount" className="block text-gray-700 mt-4 mb-2 dark:bg-gray-900 dark:text-white">Expected Number of Students per Session</label>
                 <input
                   type="text"
                   name="studentCount"
@@ -378,8 +378,8 @@ const WorkWithUs = () => {
             </div>
 
             {/* 4. Logistics & Support */}
-            <h3 className="text-xl font-semibold text-gray-800 mt-6">4. Logistics & Support</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 dark:bg-gray-900 dark:text-white">4. Logistics & Support</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 dark:bg-gray-900 dark:text-white">
               {[
                 { name: "hasRooms", label: "Do you have available rooms or labs for sessions?" },
                 { name: "ownDevices", label: "Will students bring their own devices?" },
@@ -387,7 +387,7 @@ const WorkWithUs = () => {
                 { name: "needEquipment", label: "Do you need Coducators to bring equipment?" },
               ].map(({ name, label }) => (
                 <div key={name}>
-                  <label htmlFor={name} className="block text-gray-700 mb-2">{label}</label>
+                  <label htmlFor={name} className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">{label}</label>
                   <select
                     name={name}
                     id={name}
@@ -405,9 +405,9 @@ const WorkWithUs = () => {
             </div>
 
             {/* 5. Additional Notes */}
-            <h3 className="text-xl font-semibold text-gray-800 mt-6">5. Additional Notes</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mt-6 dark:bg-gray-900 dark:text-white">5. Additional Notes</h3>
             <div>
-              <label htmlFor="additionalNotes" className="block text-gray-700 mb-2">Additional Comments or Notes</label>
+              <label htmlFor="additionalNotes" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">Additional Comments or Notes</label>
               <textarea
                 name="additionalNotes"
                 id="additionalNotes"

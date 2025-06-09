@@ -30,7 +30,7 @@ const Platforms: React.FC = () => {
     <section id="platforms" className="py-16 border-b border-gray-200">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="Technologies We Teach"
+          title="Partners"
           subtitle="Our curriculum incorporates a variety of coding languages and platforms suitable for different ages and interests."
           color="blue"
           className="mb-8"

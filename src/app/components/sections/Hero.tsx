@@ -71,9 +71,12 @@ export const HeroSection = () => {
   return (
     <motion.section
       className={cn(
-        'max-md:scroll-mt-24 flex container relative max-md:mt-2 max-lg:mt-20 lg:items-center w-full',
-        'max-md:h-[calc(100vh-80px)] md:h-[calc(80vh-80px)] lg:h-[calc(50vh-80px)] xl:h-[calc(100vh-80px)]'
+        'lg:mt-10 max-md:scroll-mt-24 flex container relative max-md:mt-20 max-lg:mt-20 lg:items-center w-full',
+        'max-md:h-[calc(100vh-80px)] md:h-[calc(80vh-80px)] lg:h-[calc(50vh-80px)] xl:h-[calc(100vh-80px)]',
+        'mt-custom-15em',
+        'dark:bg-gray-900 dark:text-white'
       )}
+
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -83,21 +86,21 @@ export const HeroSection = () => {
         variants={itemVariants}
       >
         <motion.span
-          className="max-md:px-3 max-md:py-2 max-md:text-base px-4 py-3 text-xl text-center text-blue-500 rounded-full bg-blue-500 bg-opacity-10"
+          className="max-md:px-3 max-md:py-2 max-md:text-base px-4 py-3 text-xl text-center text-blue-500 rounded-full bg-blue-500 bg-opacity-10 "
           variants={itemVariants}
         >
           {data.sub}
         </motion.span>
 
         <motion.h1
-          className="mt-3 text-7xl max-md:text-5xl max-md:leading-tight 2xl:leading-normal max-lg:leading-tight font-bold text-slate-950"
+          className="mt-3 text-7xl max-md:text-5xl max-md:leading-tight 2xl:leading-normal max-lg:leading-tight font-bold text-slate-950 dark:bg-gray-900 dark:text-white"
           variants={itemVariants}
         >
           {renderStyledTitle(data.title)}
         </motion.h1>
 
         <motion.p
-          className="pt-2 max-lg:mt-3 max-lg:pr-16 max-md:pr-0 mt-3 max-w-full max-md:text-base max-lg:text-lg text-2xl leading-8 text-gray-700"
+          className="pt-2 max-lg:mt-3 max-lg:pr-16 max-md:pr-0 mt-3 max-w-full max-md:text-base max-lg:text-lg text-2xl leading-8 text-gray-700 dark:bg-gray-900 dark:text-white"
           variants={itemVariants}
         >
           {data.desc}
@@ -109,7 +112,7 @@ export const HeroSection = () => {
         >
           <div className="flex flex-wrap gap-2 py-3 w-full text-xl max-md:text-lg leading-snug max-md:justify-center max-sm:justify-start">
             <a
-              href={data.btn1?.link || '/book'}
+              href={'/book'}
               className="flex flex-col items-center font-bold text-white max-md:min-w-60 max-sm:min-w-52"
             >
               <button
@@ -123,7 +126,7 @@ export const HeroSection = () => {
               </button>
             </a>
             <a
-              href={data.btn2?.link || '/courses'}
+              href={'/courses'}
               className="flex flex-col items-center font-semibold text-blue-500 max-md:min-w-60 max-sm:min-w-52"
             >
               <button
@@ -148,31 +151,52 @@ export const HeroSection = () => {
                 />
               ))}
             </div>
-            <p className="">Join 500+ students registered</p>
+            <p className="dark:bg-gray-900 dark:text-white">Join 500+ students registered</p>
           </div>
         </motion.div>
       </motion.div>
 
       {data.img?.[0] && (
-        <MotionImage
-          src={data.img[0]}
-          alt="Banner"
-          width={800}
-          height={600}
-          className={cn(
-            'object-contain max-w-full max-md:w-full max-lg:w-[90%] lg:w-2/4 2xl:w-[65%] z-[1]',
-            'absolute -right-32 md:-right-48 lg:-right-10 2xl:-right-1/4 bottom-0'
-          )}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          priority
-        />
+ <>
+  {/* Shadow under image */}
+<div
+  className="transform -translate-x-1/2 
+    w-[120px] sm:w-[300px] 
+    h-[20px] sm:h-[40px] 
+    blur-md 
+    rounded-full 
+    z-0
+    absolute -right-10 sm:-right-32 md:-right-68 lg:-right-32 2xl:-right-48 bottom-[-1em]
+    bg-gradient-to-r from-transparent via-[#222222] to-transparent
+  "
+></div>
+
+
+  {/* The image */}
+  <MotionImage
+    src={data.img[0]}
+    alt="Banner"
+    width={600}
+    height={600}
+    className={cn(
+      'w-[200px] h-[200px] sm:w-[600px] sm:h-[600px]',
+      'rounded-full object-cover border-[5px] sm:border-[20px] border-[#2196F3]', 
+      'z-[1] absolute -right-10 sm:-right-32 md:-right-68 lg:-right-32 2xl:-right-48 bottom-0'
+    )}
+    initial={{ opacity: 0, x: 100 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.6, duration: 0.8 }}
+    priority
+  /> 
+
+</>
+
+
+
       )}
 
       <CircleSVG className="absolute bottom-1/3 right-1/4 z-0 max-md:hidden" size={160} />
-      <AddSVG className="absolute bottom-[20%] right-1/4 z-0 max-md:hidden" size={65} />
-      <CircleSVG className="absolute top-10 max-lg:right-2 right-10 z-0 max-md:hidden" size={200} />
+      <AddSVG className="absolute bottom-[20%] right-1/4 z-0 max-md:hidden" size={65} /> 
       <AddSVG className="absolute top-10 right-1/4 z-0 max-md:hidden" size={80} />
     </motion.section>
   );

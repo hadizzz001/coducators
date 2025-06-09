@@ -31,18 +31,18 @@ const CourseGrid = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <section id="team" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="team" className="py-20 bg-white dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
 
           {/* Admin Section */}
           <SectionHeading
-            title="Our Admins"
+            title="Our Admins "
             subtitle="Meet the leadership team behind our mission."
             color="blue"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 dark:bg-gray-900 dark:text-white">
             {admins.map((member, index) => (
               <motion.div
                 key={`admin-${index}`}
@@ -63,7 +63,7 @@ const CourseGrid = () => {
             subtitle="Passionate educators dedicated to student success."
             color="blue"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 ">
             {teachers.map((member, index) => (
               <motion.div
                 key={`teacher-${index}`}

@@ -54,14 +54,14 @@ const AboutUsContent: React.FC = () => {
   }
 
   return (
-    <section id="what-we-do" className="py-20 bg-coducators-lightgray">
-      <div className="container mx-auto px-4">
+    <section id="what-we-do" className="py-20 bg-coducators-lightgray dark:bg-gray-900 dark:text-white">
+      <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
         <SectionHeading title={title} color="red" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ">
           {/* Swiper Slider */}
-          <div className="relative">
-            <div className="rounded-3xl overflow-hidden shadow-xl relative z-[1]">
+          <div className="relative dark:bg-gray-900 dark:text-white">
+            <div className="rounded-3xl overflow-hidden shadow-xl relative z-[1] dark:bg-gray-900 dark:text-white">
               {imgs && imgs.length > 0 && (
                 <Swiper
                   modules={[Navigation, Pagination, A11y]}
@@ -83,12 +83,12 @@ const AboutUsContent: React.FC = () => {
                 </Swiper>
               )}
             </div>
-            <div className="absolute -bottom-9 -left-10 w-64 h-64 bg-coducators-red/55 rounded-full z-0"></div>
+            <div className="absolute -bottom-9 -left-10 w-64 h-64 bg-coducators-red/55 rounded-full z-0 dark:bg-gray-900 dark:text-white"></div>
           </div>
 
           {/* Blog Content */}
           <div>
-            <div className="text-gray-700 mb-6">
+            <div className="text-gray-700 mb-6 dark:bg-gray-900 dark:text-white">
               <motion.div
                 className="flex items-start"
                 initial="hidden"
@@ -96,17 +96,17 @@ const AboutUsContent: React.FC = () => {
                 viewport={{ once: true, amount: 0.4 }}
                 variants={fadeUp}
               >
-                <div className="mr-4 mt-1 bg-coducators-green rounded-full p-1"></div>
+                <div className="mr-4 mt-1 bg-coducators-green rounded-full p-1  "></div>
                 <div
-                  className="text-gray-700 space-y-4"
+                  className="text-gray-700 space-y-4 dark:bg-gray-900 dark:text-white"
                   dangerouslySetInnerHTML={{ __html: desc || '' }}
                 />
               </motion.div>
             </div>
 
             {(author || date) && (
-              <p className="text-sm text-gray-500 mt-4">
-                {author && <span className="font-semibold">{author}</span>}
+              <p className="text-sm text-gray-500 mt-4 dark:bg-gray-900 dark:text-white">
+                {author && <span className="font-semibold dark:bg-gray-900 dark:text-white">{author}</span>}
                 {author && date && ' | '}
                 {date && new Date(date).toLocaleDateString()}
               </p>

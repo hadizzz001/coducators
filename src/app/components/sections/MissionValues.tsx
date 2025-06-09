@@ -77,7 +77,7 @@ const MissionValues: React.FC = () => {
   ];
 
   return (
-    <section id="mission" className="py-20 bg-white">
+    <section id="mission" className="py-20 bg-white dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Our Mission & Values"
@@ -87,11 +87,11 @@ const MissionValues: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
               Our Mission
             </h3>
 
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-6 dark:bg-gray-900 dark:text-white">
               To inspire and empower the next generation of innovators by making
               coding education accessible, engaging, and fun for all children,
               regardless of background or prior experience.
@@ -113,10 +113,10 @@ const MissionValues: React.FC = () => {
                 >
                   <div className="shrink-0 mt-1">{value.icon}</div>
                   <div>
-                    <h4 className="font-bold text-lg mb-2 text-gray-900">
+                    <h4 className="font-bold text-lg mb-2 text-gray-900 dark:bg-gray-900 dark:text-white">
                       {value.title}
                     </h4>
-                    <p className="text-gray-700">{value.description}</p>
+                    <p className="text-gray-700 dark:bg-gray-900 dark:text-white">{value.description}</p>
                   </div>
                 </motion.div>
               ))}

@@ -1,6 +1,6 @@
 "use client"
 
-import { FaFacebook, FaPhone, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaPhone, FaLinkedin, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 import { sendEmail } from '../api/sendEmail/sendEmail';
 import React, { useEffect, useState } from 'react';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -8,16 +8,41 @@ import { cn } from '@/lib/utils';
 import Navbar from '@/app/components/layout/Navbar';
 import Footer from '@/app/components/layout/Footer';
 import { useSearchParams } from 'next/navigation';
+import GoogleMap from '@/app/components/GoogleMap';
 
 
 const Contact: React.FC = () => {
   const [inputs, setInputs] = useState({
     name: "",
-    email: "",
     phone: "",
     message: "",
+    age: "",
+    interest: "",
+    date: "",
   });
   const [messageStatus, setMessageStatus] = useState<null | { success: boolean; message: string }>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selected, setSelected] = useState(  []);
+
+  const interestOptions = [
+    'Camp',
+    'Course',
+    'Workshop',
+  ];
+
+  const toggleOption = (option) => {
+    let updated;
+    if (selected.includes(option)) {
+      const updated = (selected as any[]).filter((item) => item !== option);
+
+    } else {
+      updated = [...selected, option];
+    }
+    setSelected(updated);
+    setInputs({ ...inputs, interest: updated.join(', ') }); // 👈 convert array to comma-separated string
+  };
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -30,51 +55,61 @@ const Contact: React.FC = () => {
   };
 
   const handleSubmit = async (formData: FormData) => {
+    // Ensure updated interest is added to FormData
+    formData.set("interest", selected.join(", ")); // 👈 force update interest field
+
     const result = await sendEmail(formData);
     setMessageStatus(result);
 
-    // ✅ Clear form if success
     if (result.success) {
       setInputs({
         name: "",
-        email: "",
+        interest: "",
         phone: "",
         message: "",
+        age: "",
+        date: "",
       });
+      setSelected([]); // 👈 reset selected interests
     }
   };
 
 
+
+
+
+
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <section id="contact" className="py-20 bg-coducators-lightgray">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="py-20 bg-coducators-lightgray dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
           <SectionHeading
-            title="Book a Session"
+            title="Book a Free Session"
             subtitle="Ready to book your session or need more information? Contact our team today for personalized support and scheduling."
             color="blue"
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-              <div className="p-8"> 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 dark:bg-gray-900 dark:text-white">
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden dark:bg-gray-900 dark:text-white">
+              <div className="p-8 dark:bg-gray-900 dark:text-white">
 
 
 
                 <form
-                  className="space-y-6" action={handleSubmit}  >
+                  className="space-y-6 dark:bg-gray-900 dark:text-white" action={handleSubmit}  >
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 dark:bg-gray-900 dark:text-white">
                     <div>
-                      <label htmlFor="name" className="block text-gray-700 mb-2">
+                      <label htmlFor="name" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
                         Your Name
                       </label>
                       <input
                         type="text"
                         name="name"
                         id="name"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
+                        className="text-black w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
                         placeholder="John Doe"
                         onChange={handleChange}
                         value={inputs.name}
@@ -82,47 +117,96 @@ const Contact: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-gray-700 mb-2">
-                        Email Address
+                      <label htmlFor="subject" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
+                        Phone
                       </label>
                       <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
-                        placeholder="john@example.com"
+                        className="text-black w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
+                        name="phone"
+                        type="text"
+                        placeholder="Phone Number"
+                        value={inputs.phone}
                         onChange={handleChange}
-                        value={inputs.email}
                         required
                       />
                     </div>
                   </div>
 
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 dark:bg-gray-900 dark:text-white">
+                    <div>
+                      <label htmlFor="name" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
+                        Kids age
+                      </label>
+                      <input
+                        type="text"
+                        name="age"
+                        id="age"
+                        className="text-black w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
+                        placeholder="Kids age"
+                        onChange={handleChange}
+                        value={inputs.age}
+                        required
+                      />
+                    </div>
+                    <div className="relative">
+                      <label
+                        htmlFor="interest"
+                        className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white"
+                      >
+                        Interest
+                      </label>
+
+                      <div
+                        onClick={() => setShowDropdown((prev) => !prev)}
+                        className="cursor-pointer w-full px-4 py-3 bg-white  text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
+                      >
+                        {selected.length > 0 ? selected.join(', ') : 'Select interests'}
+                      </div>
+
+                      {showDropdown && (
+                        <div className="absolute z-10 mt-1 w-full bg-white dark:bg-gray-700 border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto">
+                          {interestOptions.map((option) => (
+                            <label key={option} className="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                              <input
+                                type="checkbox"
+                                className="mr-2"
+                                checked={selected.includes(option)}
+                                onChange={() => toggleOption(option)}
+                              />
+                              {option}
+                            </label>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="subject" className="block text-gray-700 mb-2">
-                      Phone
+                    <label htmlFor="date" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
+                      Best Date & Time
                     </label>
                     <input
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
-                      name="phone"
-                      type="text"
-                      placeholder="Phone Number"
-                      value={inputs.phone}
+                      className="text-black w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
+                      name="date"
+                      type="datetime-local"
+                      placeholder="Select date and time"
+                      value={inputs.date}
                       onChange={handleChange}
                       required
                     />
                   </div>
 
+
                   <div>
-                    <label htmlFor="message" className="block text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-gray-700 mb-2 dark:bg-gray-900 dark:text-white">
                       Message
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
-                     placeholder="Preferred date, time, and topic of the session..." 
+                      className="text-black w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-coducators-blue focus:border-transparent"
+                      placeholder="Preferred date, time, and topic of the session..."
                       value={inputs.message}
                       onChange={handleChange}
                     ></textarea>
@@ -136,24 +220,36 @@ const Contact: React.FC = () => {
                   </button>
                 </form>
 
-                {messageStatus && (
-                  <p className={`mt-4 text-sm font-semibold ${messageStatus.success ? "text-green-600" : "text-red-600"}`}>
-                    {messageStatus.message}
-                  </p>
-                )}
+{messageStatus && (
+  <div className="mt-4">
+    <p className={`text-sm font-semibold ${messageStatus.success ? "text-green-600" : "text-red-600"}`}>
+      {messageStatus.message}
+    </p>
+
+    {messageStatus.success && (
+      <a
+        href="/courses"
+        className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+      >
+        Our Courses
+      </a>
+    )}
+  </div>
+)}
+
 
               </div>
             </div>
 
-            <div className="space-y-8">
-              <div className="bg-white rounded-2xl shadow-md p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="space-y-8 dark:bg-gray-900 dark:text-white">
+              <div className="bg-white rounded-2xl shadow-md p-8 dark:bg-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
                   Contact Information
                 </h3>
 
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-coducators-blue/10 p-3 rounded-full">
+                <div className="space-y-4 dark:bg-gray-900 dark:text-white">
+                  <div className="flex items-start space-x-4 dark:bg-gray-900 dark:text-white">
+                    <div className="bg-coducators-blue/10 p-3 rounded-full dark:bg-gray-900 dark:text-white">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-coducators-blue"
@@ -176,15 +272,15 @@ const Contact: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Location</h4>
-                      <p className="text-gray-600 mt-1">
+                      <h4 className="font-semibold text-gray-900 dark:bg-gray-900 dark:text-white">Location</h4>
+                      <p className="text-gray-600 mt-1 dark:bg-gray-900 dark:text-white">
                         Beirut, Achrafieh
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-coducators-green/10 p-3 rounded-full">
+                  <div className="flex items-start space-x-4 dark:bg-gray-900 dark:text-white">
+                    <div className="bg-coducators-green/10 p-3 rounded-full dark:bg-gray-900 dark:text-white">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-coducators-green"
@@ -201,13 +297,13 @@ const Contact: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Email</h4>
-                      <p className="text-gray-600 mt-1">info@coducators.com</p>
+                      <h4 className="font-semibold text-gray-900 dark:bg-gray-900 dark:text-white">Email</h4>
+                      <p className="text-gray-600 mt-1 dark:bg-gray-900 dark:text-white">info@coducators.com</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-coducators-red/10 p-3 rounded-full">
+                  <div className="flex items-start space-x-4 dark:bg-gray-900 dark:text-white">
+                    <div className="bg-coducators-red/10 p-3 rounded-full dark:bg-gray-900 dark:text-white">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 text-coducators-red"
@@ -224,22 +320,22 @@ const Contact: React.FC = () => {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Phone</h4>
-                      <p className="text-gray-600 mt-1">+961 70 128 107</p>
+                      <h4 className="font-semibold text-gray-900 dark:bg-gray-900 dark:text-white">Phone</h4>
+                      <p className="text-gray-600 mt-1 dark:bg-gray-900 dark:text-white">+961 70 128 107</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8 dark:bg-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:bg-gray-900 dark:text-white">
                   Our Social Links
                 </h3>
-                <div className="flex space-x-3">
+                <div className="flex space-x-3 dark:bg-gray-900 dark:text-white">
                   <a
                     href="https://api.whatsapp.com/send/?phone=96170128107&text&app_absent=0"
                     target="_blank"
-                    className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
+                    className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center "
                   >
                     <FaWhatsapp size={24} className="fill-coducators-blue stroke-none" />
                   </a>
@@ -264,8 +360,21 @@ const Contact: React.FC = () => {
                   >
                     <FaFacebook size={24} className="fill-coducators-blue stroke-none" />
                   </a>
+                  <a
+                    href="https://www.tiktok.com/@coducators"
+                    target="_blank"
+                    className="rounded-full cursor-pointer bg-coducators-blue/15 w-12 h-12 grid place-items-center"
+                  >
+                    <FaTiktok size={24} className="fill-coducators-blue stroke-none" />
+                  </a>
                 </div>
 
+
+
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-md overflow-hidden p-8 dark:bg-gray-900 dark:text-white">
+                <GoogleMap />
               </div>
             </div>
           </div>

@@ -38,14 +38,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white text-black dark:bg-gray-900 dark:text-white">
       <Navbar />
 
-      <main className="block overflow-hidden pb-8">
+ 
+
+
+      <main className="block overflow-hidden pb-8 dark:bg-gray-900 dark:text-white">
         <HeroSection />
-        <HowItWorksSection />
-        <AboutUs />
         <WhatWeDo />
+        <AboutUs />
+        <HowItWorksSection />  
         <MissionValues />
         <CourseSlider />
         <ProjectsSlider />

@@ -69,19 +69,19 @@ const AboutUsContent: React.FC = () => {
 
     return (
         <>
-            <main className="block overflow-hidden pb-8">
-                <section id="about" className="py-20 bg-white">
-                    <div className="container mx-auto px-4">
+            <main className="block overflow-hidden pb-8 dark:bg-gray-900 dark:text-white">
+                <section id="about" className="py-20 bg-white dark:bg-gray-900 dark:text-white">
+                    <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
                         <SectionHeading title={title} color="blue" />
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div className="order-2 lg:order-1">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center dark:bg-gray-900 dark:text-white">
+                            <div className="order-2 lg:order-1 dark:bg-gray-900 dark:text-white">
                                 <p
-                                    className="text-gray-700 mb-6"
+                                    className="text-gray-700 mb-6 dark:bg-gray-900 dark:text-white"
                                     dangerouslySetInnerHTML={{ __html: desc || '' }}
                                 />
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 text-center">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 text-center dark:bg-gray-900 dark:text-white">
                                     {stats.map((stat, index) => (
                                         <div
                                             key={index}
@@ -99,7 +99,7 @@ const AboutUsContent: React.FC = () => {
                                             >
                                                 {stat.value}
                                             </div>
-                                            <p className="mt-3 text-lg font-medium text-gray-700">
+                                            <p className="mt-3 text-lg font-medium text-gray-700 dark:bg-gray-900 dark:text-white">
                                                 {stat.label}
                                             </p>
                                         </div>
@@ -138,7 +138,7 @@ const AboutUsContent: React.FC = () => {
 
 const AboutUs = () => {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
             <Navbar />
             <Suspense fallback={<div className="text-center py-20 text-xl">Loading...</div>}>
                 <AboutUsContent />

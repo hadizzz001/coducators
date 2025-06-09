@@ -148,3 +148,13 @@ html {
   background-size: 200% auto;
   animation: shineBackground 3s linear infinite;
 }
+
+
+
+@layer utilities {
+  @media (max-width: 1280px) and (min-width: 1000px) {
+    .mt-custom-15em {
+      margin-top: 15em !important;
+    }
+  }
+}

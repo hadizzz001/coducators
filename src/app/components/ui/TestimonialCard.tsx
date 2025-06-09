@@ -2,17 +2,19 @@ import { cn } from "@/lib/utils";
 import { MessageSquare, Star } from "lucide-react";
 
 interface TestimonialCardProps {
+  forr: string;
   quote: string;
   name: string;
   role: string;
   imageUrl: string;
   className?: string;
-  variant?: "blue" | "green" | "red" | "lime";
+  variant?: "blue" | "green" | "red";
   rate?: number;
   icon?: React.ReactNode;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  forr,
   quote,
   name,
   role,
@@ -32,7 +34,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   return (
     <div
       className={cn(
-        "rounded-2xl p-6 border card-shadow transition-all duration-300 h-full transform md:hover:-translate-y-2 relative",
+        "rounded-2xl p-6 border card-shadow transition-all duration-300 h-full transform md:hover:-translate-y-2 relative dark:bg-gray-900 dark:text-white",
         variantClasses[variant],
         className
       )}
@@ -47,8 +49,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             />
           </div>
           <div>
-            <h4 className="font-bold text-gray-900">{name}</h4>
-            <p className="text-gray-600 text-sm">{role}</p>
+            <h4 className="font-bold text-gray-900 dark:bg-gray-900 dark:text-white">{name}</h4>
+            <p className="text-gray-600 text-sm dark:bg-gray-900 dark:text-white">{role}</p>
+            <p className="text-gray-600 text-sm dark:bg-gray-900 dark:text-white">{forr}</p>
           </div>
         </div>
         <MessageSquare
@@ -59,7 +62,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         />
       </div>
 
-      <p className="text-gray-700 italic mb-4">{quote}</p>
+      <p className="text-gray-700 italic mb-4 dark:bg-gray-900 dark:text-white">{quote}</p>
       <div className="flex items-start py-1.5">
         {[...Array(rate)].map((_, i) => (
           <Star className="fill-yellow-500 stroke-none" key={i} />

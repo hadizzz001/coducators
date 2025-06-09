@@ -36,8 +36,8 @@ export const TeamCard: React.FC<TeamCardProps> = ({ data, index }) => {
         >
           {data?.name}
         </h3>
-        <p className="mt-1 text-base text-gray-600">{data?.position}</p>
-<p className="mt-1 text-base text-gray-600"> {data?.description ?.replace(/<[^>]+>/g, '') .trim() .split(/\s+/) .slice(0, 5) .join(' ') + '...'} </p>
+        <p className="mt-1 text-base text-gray-600 dark:bg-gray-900 dark:text-white">{data?.position}</p>
+<p className="mt-1 text-base text-gray-600 dark:bg-gray-900 dark:text-white" > {data?.description ?.replace(/<[^>]+>/g, '') .trim() .split(/\s+/) .slice(0, 5) .join(' ') + '...'} </p>
 
         <p className="mt-1 text-base text-gray-600">
           <a

@@ -56,10 +56,10 @@ const [groupedCourses, setGroupedCourses] = useState<Record<string, Course[]>>({
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video">
-        <div className="container mx-auto px-4">
+      <section id="courses" className="py-20 bg-coducators-lightgray cards-aspect-video dark:bg-gray-900 dark:text-white">
+        <div className="container mx-auto px-4 dark:bg-gray-900 dark:text-white">
           <SectionHeading
             title="Our Courses"
             subtitle="Explore our range of coding courses designed for different age groups and skill levels."
@@ -68,9 +68,9 @@ const [groupedCourses, setGroupedCourses] = useState<Record<string, Course[]>>({
 
           {/* Render each age group section */}
           {Object.entries(groupedCourses).map(([ageGroup, courses]) => (
-            <div key={ageGroup} className="mb-12">
-              <h3 className="text-xl font-semibold text-coducators-darkblue mb-4">{ageGroup}</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div key={ageGroup} className="mb-12 dark:bg-gray-900 dark:text-white">
+              <h3 className="text-xl font-semibold text-coducators-darkblue mb-4 dark:bg-gray-900 dark:text-white">{ageGroup}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 dark:bg-gray-900 dark:text-white">
                 {courses?.map((course) => (
                   <CourseCard
                     key={course._id}

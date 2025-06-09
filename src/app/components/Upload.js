@@ -26,7 +26,7 @@ const Upload = ({ onFileUpload }) => {
       formData.append("upload_preset", "ml_default"); // Replace with your preset
 
       try {
-        const res = await fetch("https://api.cloudinary.com/v1_1/dgkndndub/auto/upload", {
+        const res = await fetch("https://api.cloudinary.com/v1_1/don08nqmo/auto/upload", {
           method: "POST",
           body: formData,
         });
